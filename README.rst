@@ -7,10 +7,6 @@ Cheshire: a Python Template Repository for Catalyst
    :target: https://github.com/catalyst-cooperative/cheshire/actions?query=workflow%3Atox-pytest
    :alt: Tox-PyTest Status
 
-.. image:: https://github.com/catalyst-cooperative/cheshire/workflows/docker-build-push/badge.svg
-   :target: https://github.com/catalyst-cooperative/cheshire/actions?query=workflow%3Adocker-build-push
-   :alt: Docker build status
-
 .. image:: https://img.shields.io/codecov/c/github/catalyst-cooperative/cheshire?style=flat&logo=codecov
    :target: https://codecov.io/gh/catalyst-cooperative/cheshire
    :alt: Codecov Test Coverage
@@ -190,8 +186,6 @@ look right so you can fix it.
   common problems like blanket ``# noqa`` annotations, as well as `language agnostic
   problems <https://github.com/pre-commit/pre-commit-hooks>`__ like accidentally
   checking large binary files into the repository or having unresolved merge conflicts.
-* `hadolint <https://github.com/AleksaC/hadolint-py>`__ checks Dockerfiles for errors
-  and violations of best practices. It runs as a pre-commit hook.
 
 Test Coverage
 -------------
@@ -286,8 +280,6 @@ Actions to:
 
 * Run continuous integration using `tox <https://tox.wiki>`__ on several different
   versions of Python.
-* Build a Docker container directly and push it to Docker Hub using the
-  `docker-build-push action <https://github.com/docker/build-push-action>`__.
 * Release a new version of the package on PyPI when a version tag is pushed.
 * Automatically merge bot PRs from pre-commit.ci and the dependabot.
 

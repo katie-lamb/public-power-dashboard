@@ -25,7 +25,7 @@ DOCS_DIR = Path(__file__).parent.resolve()
 # importable path.
 
 # The full version, including alpha/beta/rc tags
-release = importlib.metadata.version("catalystcoop.cheshire")
+release = importlib.metadata.version("catalystcoop.public_power_backend")
 
 # -- Project information -----------------------------------------------------
 
@@ -54,7 +54,7 @@ todo_include_todos = True
 # Automatically generate API documentation during the doc build:
 autoapi_type = "python"
 autoapi_dirs = [
-    "../src/cheshire",
+    "../src/public_power_backend",
 ]
 autoapi_ignore = [
     "*_test.py",
@@ -62,7 +62,7 @@ autoapi_ignore = [
 ]
 
 # GitHub repo
-issues_github_path = "catalyst-cooperative/cheshire"
+issues_github_path = "catalyst-cooperative/public_power_backend"
 
 # In order to be able to link directly to documentation for other projects,
 # we need to define these package to URL mappings:
