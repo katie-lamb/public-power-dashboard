@@ -6,6 +6,7 @@ from public_power_backend.constants import (
     OWNER_FILL_INS,
     SUB_TO_PARENT_CIK_MAPPING,
     ULTIMATE_OWNER_COMPANY_UTILITY_ID_EIA_LIST,
+    UTILITY_ID_EIA_CIK_MAP,
     UTILITY_ID_EIA_TO_DROP,
     UTILITY_ID_EIA_TO_KEEP,
 )
@@ -43,6 +44,9 @@ def _transform_eia_utilities(raw_eia_utils_df: pd.DataFrame) -> pd.DataFrame:
     )
     sec_utils_df = sec_utils_df.drop_duplicates(subset="utility_id_eia")
     ious = ious.merge(sec_utils_df, how="left", on="utility_id_eia", validate="1:1")
+    ious["central_index_key"] = ious["central_index_key"].fillna(
+        ious["utility_id_eia"].map(UTILITY_ID_EIA_CIK_MAP)
+    )
     sec_parents_df = pd.read_parquet(
         "s3://pudl.catalyst.coop/nightly/out_sec10k__parents_and_subsidiaries.parquet",
         dtype_backend="pyarrow",
@@ -117,10 +121,9 @@ def _transform_eia_utilities(raw_eia_utils_df: pd.DataFrame) -> pd.DataFrame:
     ious["owner_company_central_index_key"] = ious[
         "owner_company_central_index_key_fillin"
     ].fillna(ious["owner_company_central_index_key"])
-    ious["central_index_key"] = ious["central_index_key"].astype(str)
     ious["owner_company_central_index_key"] = ious[
         "owner_company_central_index_key"
-    ].astype(str)
+    ].str.zfill(10)
     assert ious.utility_id_eia.is_unique, (
         "utility_id_eia is not unique in EIA IOUs table."
     )
