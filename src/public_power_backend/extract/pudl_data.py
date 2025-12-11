@@ -32,6 +32,30 @@ def _extract_pudl_rtos():
     return util_rtos
 
 
+def _extract_pudl_ferc1_utilities():
+    ferc_utils_df = pd.read_parquet(
+        "s3://pudl.catalyst.coop/stable/core_pudl__assn_ferc1_pudl_utilities.parquet",
+        dtype_backend="pyarrow",
+    )
+    return ferc_utils_df
+
+
+def _extract_sec_filers_to_eia_utilities():
+    sec_utils_df = pd.read_parquet(
+        "s3://pudl.catalyst.coop/stable/core_sec10k__assn_sec10k_filers_and_eia_utilities.parquet",
+        dtype_backend="pyarrow",
+    )
+    return sec_utils_df
+
+
+def _extract_sec_ownership():
+    sec_parents_df = pd.read_parquet(
+        "s3://pudl.catalyst.coop/nightly/out_sec10k__parents_and_subsidiaries.parquet",
+        dtype_backend="pyarrow",
+    )
+    return sec_parents_df
+
+
 def extract() -> dict[str, pd.DataFrame]:
     """Pull PUDL tables from AWS cloud storage.
 
@@ -41,8 +65,11 @@ def extract() -> dict[str, pd.DataFrame]:
     raw_pudl_tables = {}
     # dictionary of PUDL table names to names used in DGM data warehouse
     tables = {
-        "pudl_utilities": _extract_pudl_eia_utilities,
+        "pudl_eia_utilities": _extract_pudl_eia_utilities,
         "pudl_rtos": _extract_pudl_rtos,
+        "pudl_ferc1_utilities": _extract_pudl_ferc1_utilities,
+        "pudl_sec_utils": _extract_sec_filers_to_eia_utilities,
+        "pudl_sec_ownership": _extract_sec_ownership,
     }
     for table_name, extract_func in tables.items():
         raw_pudl_tables[table_name] = extract_func()

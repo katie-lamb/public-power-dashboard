@@ -1,0 +1,185 @@
+,utility_name_eia,utility_id_eia,utility_id_ferc1,state,has_pse_data
+0,Hardy Hills Solar LLC,66424,,IN,False
+1,"Emeren US, LLC",66412,,CA,False
+2,Walnut Bend Solar Station,66229,,AR,False
+3,TRITEC Americas,66225,,CA,False
+4,"Foxhound Solar, LLC",66049,,VA,False
+5,Dunns Bridge Solar Center LLC,65653,,IN,False
+6,"NE Renewable Fitchburg, LLC",65545,,NY,False
+7,Dane County Solar LLC,65501,,WI,False
+8,Navajo Transitional Energy Company,65493,,CO,False
+9,"Generation Bridge II Connecticut, LLC",65448,,CT,False
+10,BBCP Kauai Operating LLC,65153,,HI,False
+11,Rainbow Energy Center,65146,,ND,False
+12,SV CSG Barrass Farms II LLC,65057,,WI,False
+13,Easton CSG 1 LLC,65054,,WI,False
+14,Meadow Lake Solar Park,64969,,IN,False
+15,IMG Energy Solutions,64378,,PA,False
+16,DTE Sustainable Generation,64331,,MI,False
+17,Tatanka Ridge LLC,63897,,WI,False
+18,Camp Riley Solar Facility,63704,,MN,False
+19,"Sand Point Generating, LLC",63560,,AK,False
+20,Coyote Ridge LLC,63083,,WI,False
+21,"Searcy Solar, LLC",62109,,FL,False
+22,Caldwell Wastewater Treatment Plant,61597,,NJ,False
+23,Ameren Illinois,61576,222,IL,False
+24,Heyer CSG LLC,61409,,MD,False
+25,"Foxtail Wind, LLC",61374,,,False
+26,Johnson II CSG LLC,61309,,MD,False
+27,Foreman's Hill CSG LLC,61304,,MD,False
+28,Grimm CSG LLC,61303,,MD,False
+29,Johnson I CSG LLC,61287,,MD,False
+30,RJC II CSG LLC,61285,,MD,False
+31,Scandia CSG LLC,61284,,MD,False
+32,Betcher CSG LLC,61256,,MD,False
+33,School Sisters CSG LLC,61114,,MD,False
+34,Krause CSG LLC,61110,,MD,False
+35,Huneke I CSG LLC,61109,,MD,False
+36,RJC I CSG LLC,61108,,MD,False
+37,Hopewell Valley High School,61091,,NJ,False
+38,Upper Michigan Energy Resources Company,61029,368,MI,False
+39,"Gemini Technologies Services, Inc.",60961,,NJ,False
+40,"Dunn Paper East Hartford, LLC",60642,,CT,False
+41,Community Foodbank of NJ,60462,,NJ,False
+42,SDGE Batteries,60336,,CA,False
+43,"Haida Energy, Inc.",60222,,AK,False
+44,ILR Landfill,60164,,NJ,False
+45,"Potrero Hills Energy Producers, LLC",59713,,MI,False
+46,Eversource,59497,,CT,False
+47,PNM Resources,59300,,NM,False
+48,"SunStrong Management, LLC",58649,,CA,False
+49,SunGen Sharon 1 LLC,58511,,ME,False
+50,"Uwharrie Mountain Renewable Energy, LLC",58502,,MI,False
+51,"Azalea Solar, LLC",58468,,SC,False
+52,Sunshine Gas Producers LLC,58426,,MI,False
+53,"Doyon Utilities, LLC",58368,,AK,False
+54,TDX North Slope Generating Inc.,57494,,AK,False
+55,Siemens Government Technologies Inc,57390,,,False
+56,California Pacific Electric Company,57222,,CA,False
+57,Blue Water Renewables Inc,57029,,MI,False
+58,Western Massachusetts Electric Company,56999,245,MA,False
+59,NorthWestern Energy DGGS,56815,,MT,False
+60,Davidson Gas Producers LLC,56760,,MI,False
+61,Coleto Creek Power LP,56570,,TX,False
+62,National Grid Generation LLC,56505,281,NY,False
+63,National Grid,56404,,NY,False
+64,Doyon Utilities,56389,,AK,False
+65,Iredell Transmission LLC,56261,,MI,False
+66,Black Hills/Colorado Elec.Utility Co. LP,56146,309,SD,True
+67,Entergy Texas Inc.,55937,234,TX,True
+68,Duke Energy Kentucky Inc,55729,171,OH,False
+69,NSTAR Electric Company,54913,271,MA,True
+70,Electric Transmission Texas LLC,50174,,TX,False
+71,Desert Sky Wind Farm LP,49796,,TX,False
+72,Tucson Electric Power Co,24211,257,AZ,True
+73,Western Resources Inc,22500,225,KS,True
+74,Salem Energy Systems LLC,22331,,MI,False
+75,Wheeling Power Co,22053,202,,True
+76,Wolf Creek Nuclear Optg Corp,20893,94,KS,False
+77,Wisconsin River Power Co,20863,189,WI,False
+78,Wisconsin Public Service Corp,20860,187,WI,True
+79,Wisconsin Power & Light Co,20856,219,WI,True
+80,Wisconsin Electric Power Co,20847,280,WI,True
+81,Avista Corporation,20169,182,WA,True
+82,Dominion Virginia Power,19876,164,VA,True
+83,UNS Electric Inc,19728,258,AZ,True
+84,Upper Peninsula Power Company,19578,188,MI,True
+85,Hawaiian Electric Co Inc,19547,400,HI,True
+86,Black Hills Corp,19545,285,,True
+87,United Illuminating Co,19497,299,CT,True
+88,Union Electric Co,19436,221,MO,True
+89,U S Army-Fort Greely,19272,,AK,False
+90,Tampa Electric Co,18454,157,FL,True
+91,Strawberry Water Users Assn,18205,,UT,False
+92,Southwestern Public Service Co,17718,230,TX,True
+93,Southwestern Electric Power Co,17698,206,,True
+94,Southern Power Co,17650,,,False
+95,Southern Indiana Gas & Elec Co,17633,242,IN,True
+96,Southern California Water Co,17612,,CA,True
+97,Southern California Edison Co,17609,155,,True
+98,South Carolina Genertg Co Inc,17554,351,SC,False
+99,South Carolina Electric&Gas Co,17539,168,SC,True
+100,Sierra Pacific Power Co,17166,300,NV,True
+101,San Diego Gas & Electric Co,16609,218,CA,True
+102,Rochester Gas & Electric Corp,16183,214,NY,True
+103,Riverview Energy Systems,16073,,MI,False
+104,Puget Sound Energy Inc,15500,162,WA,True
+105,Public Service Electric&Gas Co,15477,260,NJ,True
+106,Public Service Co of Oklahoma,15474,205,OK,True
+107,Public Service Co of NM,15473,263,NM,True
+108,PSI Energy Inc,15470,169,IN,True
+109,Public Service Co of Colorado,15466,227,CO,True
+110,Portland General Electric Co,15248,250,OR,True
+111,PacifiCorp,14354,303,,True
+112,Pacific Gas & Electric Co.,14328,183,CA,True
+113,Otter Tail Power Co,14232,272,,True
+114,Orange & Rockland Utils Inc,14154,,NY,True
+115,Oklahoma Gas & Electric Co,14063,314,OK,True
+116,Ohio Valley Electric Corp,14015,217,OH,False
+117,NorthWestern Energy (MT hdro),13902,315,MT,False
+118,NRG Energy Center Paxton Inc,13875,,PA,False
+119,Northwestern Wisconsin Elec Co,13815,399,WI,True
+120,Northwestern Public Service Co,13809,,SD,True
+121,Northern States Power Co,13781,229,MN,True
+122,Northern Indiana Pub Serv Co,13756,208,IN,True
+123,North Central Power Co Inc,13697,427,WI,True
+124,New York State Electric  & Gas,13511,215,NY,True
+125,Entergy New Orleans Inc,13478,233,LA,True
+126,Nevada Power Co,13407,301,NV,True
+127,Nantucket Electric Co,13206,426,MA,True
+128,Monongahela Power Co,12796,238,PA,True
+129,Mississippi Power Co,12686,297,MS,True
+130,Entergy Mississippi Inc,12685,382,MS,True
+131,Minnesota Power Inc,12647,307,MN,True
+132,Entergy Operations Inc,12465,235,MS,False
+133,MidAmerican Energy Co,12341,251,IA,True
+134,MDU Resources Group Inc,12199,319,ND,True
+135,McGrath Light & Power Co,12119,,AK,False
+136,Maui Electric Co Ltd,11843,25,HI,True
+137,Massachusetts Electric Co,11804,277,NY,True
+138,Madison Gas & Electric Co,11479,335,WI,True
+139,Louisville Gas & Electric Co,11249,209,KY,True
+140,Entergy Louisiana Inc,11241,231,LA,True
+141,Lockhart Power Co,11118,252,SC,True
+142,Kentucky Utilities Co,10171,210,KY,True
+143,"Evergy Kansas South, Inc",10005,356,KS,True
+144,Evergy Metro,10000,254,MO,True
+145,Interstate Power and Light Co,9417,220,IA,True
+146,Indiana Michigan Power Co,9324,201,IN,True
+147,AES Indiana,9273,279,IN,True
+148,Indiana-Kentucky Electric Corp,9269,409,OH,False
+149,Idaho Power Co,9191,216,ID,True
+150,Hawaii Electric Light Co Inc,8287,105,HI,True
+151,Gwitchyaa Zhee Utility Co,7833,,AK,False
+152,Green Mountain Power Corp,7601,313,VT,True
+153,Georgia Power Co,7140,295,GA,True
+154,Florida Power Corp,6455,161,FL,True
+155,Florida Power & Light Co,6452,247,FL,True
+156,Farmington River Power Co,6207,,CT,False
+157,Empire District Electric Co,5860,249,MO,True
+158,El Paso Electric Co,5701,186,TX,True
+159,El Dorado Energy LLC,5695,,NV,False
+160,Duke Energy Corp,5416,170,SC,True
+161,Dominion Energy Inc,5248,,VA,False
+162,Dominion Energy Nuclear Conn Inc,5221,,CT,False
+163,The DTE Electric Company,5109,184,MI,True
+164,Aniak Light & Power Co Inc,4959,,AK,False
+165,Dahlberg Light & Power Co,4715,,WI,True
+166,Consumers Energy Co - (MI),4254,163,MI,True
+167,Consolidated Water Power Co,4247,312,WI,True
+168,Consolidated Edison Co-NY Inc,4226,159,NY,True
+169,Cincinnati Gas & Electric Co,3542,172,IN,True
+170,CLECO Power LLC,3265,185,LA,True
+171,Central Hudson Gas & Elec Corp,3249,396,NY,True
+172,Carolina Power & Light Co,3046,160,NC,True
+173,Brazos Valley Energy,2171,,TX,False
+174,Entergy Arkansas Inc,814,226,AR,True
+175,Arizona Public Service Co,803,286,AZ,True
+176,Appalachian Power Co,733,200,WV,True
+177,American Ref-Fuel Co of DE Val,570,,PA,False
+178,Amana Society Service Co,471,,IA,True
+179,Alcoa Generating Corp,261,,,False
+180,Alaska Power Co,219,,AK,True
+181,Alaska Electric Light & Power Co.,213,394,AK,True
+182,Alabama Power Co,195,294,AL,True
+183,Gila Bend Power Partners LLC,7189,,TX,False

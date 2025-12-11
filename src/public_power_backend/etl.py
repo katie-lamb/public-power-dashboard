@@ -59,4 +59,4 @@ def etl():
 if __name__ == "__main__":
     # debugging entry point
     etl()
-    print("yay")
+    print("Successfully finished ETL.")

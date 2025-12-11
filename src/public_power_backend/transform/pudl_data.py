@@ -1,5 +1,7 @@
 """Transform module for PUDL data."""
 
+import warnings
+
 import pandas as pd
 
 from public_power_backend.constants import (
@@ -12,45 +14,42 @@ from public_power_backend.constants import (
 )
 
 
-def _transform_eia_utilities(raw_eia_utils_df: pd.DataFrame) -> pd.DataFrame:
+def _transform_eia_utilities(raw_pudl_tables: pd.DataFrame) -> pd.DataFrame:
     """Transform EIA utilities to create an IOUs table.
+
+    Add on FERC1 utility ID.
 
     Filter for IOUs using owner entity_type. Restrict to utility
     name and ID columns.
     """
+    warnings.warn(f"KEYS; {raw_pudl_tables.keys()}", UserWarning)
+    raw_eia_utils_df = raw_pudl_tables["pudl_eia_utilities"]
     ious = raw_eia_utils_df[raw_eia_utils_df.entity_type == "I"]
     ious = ious[
         ["utility_id_eia", "utility_name_eia", "utility_id_pudl", "state"]
     ].drop_duplicates()
     ious = ious[~ious["utility_id_eia"].isin(UTILITY_ID_EIA_TO_DROP)]
-    assert len(ious[~ious["utility_id_eia"].isin(UTILITY_ID_EIA_TO_KEEP)]) == 0, (
-        "The following utility_id_eia have not been seen before "
-        "and are not in UTILITY_ID_EIA_TO_DROP or UTILITY_ID_EIA_TO_KEEP: "
-        f"{ious[~ious['utility_id_eia'].isin(UTILITY_ID_EIA_TO_KEEP)]['utility_id_eia'].unique()}"
-    )
-    # TODO: move this into extract and clean this up
-    ferc_utils_df = pd.read_parquet(
-        "s3://pudl.catalyst.coop/stable/core_pudl__assn_ferc1_pudl_utilities.parquet",
-        dtype_backend="pyarrow",
-    )
+    if len(ious[~ious["utility_id_eia"].isin(UTILITY_ID_EIA_TO_KEEP)]) != 0:
+        warnings.warn(
+            "The following utility_id_eia are new IOU type utilities "
+            "and are not in UTILITY_ID_EIA_TO_DROP or UTILITY_ID_EIA_TO_KEEP."
+            "They may be worth looking into: "
+            f"{ious[~ious['utility_id_eia'].isin(UTILITY_ID_EIA_TO_KEEP)]['utility_id_eia'].unique()}",
+            UserWarning,
+        )
+    ferc_utils_df = raw_pudl_tables["pudl_ferc1_utilities"]
     # not ideal, look into why there are duplicates
     ferc_utils_df = ferc_utils_df.drop_duplicates(subset="utility_id_pudl")[
         ["utility_id_pudl", "utility_id_ferc1"]
     ]
     ious = ious.merge(ferc_utils_df, how="left", on="utility_id_pudl", validate="1:1")
-    sec_utils_df = pd.read_parquet(
-        "s3://pudl.catalyst.coop/stable/core_sec10k__assn_sec10k_filers_and_eia_utilities.parquet",
-        dtype_backend="pyarrow",
-    )
+    sec_utils_df = raw_pudl_tables["pudl_sec_utils"]
     sec_utils_df = sec_utils_df.drop_duplicates(subset="utility_id_eia")
     ious = ious.merge(sec_utils_df, how="left", on="utility_id_eia", validate="1:1")
     ious["central_index_key"] = ious["central_index_key"].fillna(
         ious["utility_id_eia"].map(UTILITY_ID_EIA_CIK_MAP)
     )
-    sec_parents_df = pd.read_parquet(
-        "s3://pudl.catalyst.coop/nightly/out_sec10k__parents_and_subsidiaries.parquet",
-        dtype_backend="pyarrow",
-    )
+    sec_parents_df = raw_pudl_tables["pudl_sec_ownership"]
     clean_parents_df = (
         sec_parents_df[
             [
@@ -141,18 +140,18 @@ def _transform_eia_utilities(raw_eia_utils_df: pd.DataFrame) -> pd.DataFrame:
     ]
 
 
-def _transform_eia861_rtos(raw_eia_rto_df: pd.DataFrame) -> pd.DataFrame:
+def _transform_eia861_rtos(raw_pudl_tables: pd.DataFrame) -> pd.DataFrame:
     """Transform EIA 861 RTOs."""
-    rto_df = raw_eia_rto_df.copy()
+    rto_df = raw_pudl_tables["pudl_rtos"].copy()
     rto_df["rtos_of_operation"] = rto_df["rtos_of_operation"].astype("string")
     combined_rtos = (
         rto_df.groupby("utility_id_eia")["rtos_of_operation"].agg(list).reset_index()
     )
     rto_df = rto_df.drop(columns="rtos_of_operation")
     rto_df = rto_df.drop_duplicates()
-    assert rto_df["utility_id_eia"].is_unique, (
-        "utility_id_eia is not unique in EIA RTOs table."
-    )
+    if not rto_df["utility_id_eia"].is_unique:
+        warnings.warn("utility_id_eia is not unique in EIA RTOs table.", UserWarning)
+        rto_df = rto_df.drop_duplicates(subset="utility_id_eia", keep="first")
     rto_df = rto_df.merge(
         combined_rtos, how="left", on="utility_id_eia", validate="1:1"
     )
@@ -175,9 +174,7 @@ def transform(raw_pudl_tables: pd.DataFrame) -> dict[str, pd.DataFrame]:
     }
 
     transformed_dfs = {}
-    for pudl_table_name, raw_pudl_table in raw_pudl_tables.items():
-        transformed_dfs[pudl_table_name] = table_transform_functions[pudl_table_name](
-            raw_pudl_table
-        )
+    for table_name, transform_func in table_transform_functions.items():
+        transformed_dfs[table_name] = transform_func(raw_pudl_tables)
 
     return transformed_dfs

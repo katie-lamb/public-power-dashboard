@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pandas as pd
 
-PUDL_DATA_YEAR = 2023
+PUDL_DATA_YEAR = 2024
 
 # Path to the directory containing this file (public-power-dashboard/src/public_power_backend)
 _BASE_DIR = Path(__file__).resolve().parent
@@ -13,6 +13,12 @@ _BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = _BASE_DIR.parent.parent / "data"
 
 OUTPUT_DIR = DATA_DIR / "output"
+
+INPUT_DIR = DATA_DIR / "input"
+"""
+There are some one-off input data sources that are placed in this input directory.
+This inclues manual mapping CSVs and data from PSE and Emily Grubert's report.
+"""
 
 UTILITY_ID_EIA_TO_DROP = [
     66424,

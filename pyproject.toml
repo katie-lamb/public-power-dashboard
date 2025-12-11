@@ -18,12 +18,15 @@ requires-python = ">=3.10,<3.14"
 dynamic = ["version"]
 license = {file = "LICENSE.txt"}
 dependencies = [
+    "edgartools>=4,<5",
+    "numpy>=2,<3",
     "pandas[parquet,excel,fss,gcp,compression]>=2,<3",
     "pydantic[email]>=2,<3",
     "pytest-console-scripts>=1.1,<2",  # Allow automatic testing of scripts
     "pytest-cov>=4,<7",  # Pytest plugin for working with coverage
     "pytest>=7,<9",  # Our testing framework
     "sqlalchemy>=2,<3",
+    "yfinance<1"
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
