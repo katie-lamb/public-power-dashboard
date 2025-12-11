@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from cheshire.dummy import do_something
+from public_power_backend.dummy import do_something
 
 logger = logging.getLogger(__name__)
 

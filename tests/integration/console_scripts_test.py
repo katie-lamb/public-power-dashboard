@@ -5,7 +5,9 @@ import importlib.metadata
 import pytest
 
 # Obtain a list of all deployed entry point scripts to test:
-ENTRY_POINTS = importlib.metadata.distribution("catalystcoop.cheshire").entry_points
+ENTRY_POINTS = importlib.metadata.distribution(
+    "catalystcoop.public_power_backend"
+).entry_points
 
 
 @pytest.mark.parametrize("ep", ENTRY_POINTS)
